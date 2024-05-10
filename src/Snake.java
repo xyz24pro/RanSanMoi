@@ -62,12 +62,16 @@ public class Snake {
 		vector = Snake.GO_DOWN;
 	}
 	
+	  // Phương thức thiết lập hướng di chuyển của rắn
 	public void setVector(int v) {
 		if(vector != -v && udAfterChangeVt) {
 			vector = v; 
 			udAfterChangeVt = false;
 		}
 	}
+	
+
+    // Kiểm tra xem một tọa độ có nằm trong thân của rắn không
 	public boolean toaCoNamTrongThanRan(int x1,int y1) {
 		for(int i =0;i<doDai;i++) 
 			if(this.x[i]==x1 && this.y[i]==y1) return true;
@@ -84,6 +88,7 @@ public class Snake {
 		return new Point(x,y);
 	}
 	
+	// Lấy tốc độ hiện tại của rắn dựa trên cấp độ
 	public int getCurrentSpeed() {
 		int speed = 200;
 		for(int i =0; i<GameScreen.CurrentLevel;i++) {
@@ -94,7 +99,7 @@ public class Snake {
 		
 	
 	public void update() {
-		
+		// Kiểm tra nếu rắn đạt độ dài tối đa
 		if(doDai == maxLen) {
 			GameScreen.isPlaying = false;
 			resetGame();
@@ -103,6 +108,7 @@ public class Snake {
 			speed = getCurrentSpeed();
 		}
 		
+		  // Kiểm tra va chạm với thân của rắn
 		for (int i =1 ;i< doDai; i++) {
 			if(x[0]==x[i]&& y[0]==y[i]) {
 				
@@ -117,6 +123,7 @@ public class Snake {
 			}
 		}
 		
+		  // Cập nhật hình ảnh của đầu rắn
 		if(System.currentTimeMillis()-t2>200) {
 			
 			udAfterChangeVt = true ;
@@ -129,13 +136,13 @@ public class Snake {
 			t2 = System.currentTimeMillis();
 		}
 		
-		if(System.currentTimeMillis()-t1>speed) { // tốc độ rắn
+		if(System.currentTimeMillis()-t1>speed) {
 			
 			
-			if(GameScreen.bg[x[0]][y[0]]==2) {
+			if(GameScreen.bg[x[0]][y[0]]==2) { // Nếu rắn ăn được thức ăn
 				doDai++;
-				GameScreen.bg[x[0]][y[0]]=0;
-				GameScreen.bg[layToaDoMoi().x][layToaDoMoi().y]=2;
+				GameScreen.bg[x[0]][y[0]]=0;// Loại bỏ thức ăn khỏi ma trận
+				GameScreen.bg[layToaDoMoi().x][layToaDoMoi().y]=2;  // Tạo thức ăn mới
 				
 				GameScreen.diem+= 100;
 			}
