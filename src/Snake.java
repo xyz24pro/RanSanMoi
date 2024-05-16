@@ -83,9 +83,13 @@ public class Snake {
         return new Point(x, y);
     }
 
-    public static int getCurrentSpeed() {
-        return (int) (200 * 0.8);
-    }
+    public int getCurrentSpeed() {
+		int speed = 200;
+		for(int i =0; i<GameScreen.CurrentLevel;i++) {
+			speed *= 0.8;
+		}
+		return speed;
+	}
 
     public void update() {
         if (doDai == maxLen) {

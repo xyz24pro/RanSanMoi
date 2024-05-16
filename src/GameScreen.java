@@ -128,9 +128,9 @@ public class GameScreen extends JPanel implements Runnable{
 		g.drawString("SCORE: "+ diem, 450, 60);
 		g.drawString("TOP 10: ", 450, 90);
 		
-		List<User> top5Players = FrameScreen.getTop5Players();
-        for (int i = 0; i < top5Players.size(); i++) {
-            g.drawString((i+1)+"."+ top5Players.get(i).toString(), 450, i*30 + 120);
+		List<User> top10Players = FrameScreen.getTop10Players();
+        for (int i = 0; i < top10Players.size(); i++) {
+            g.drawString((i+1)+"."+ top10Players.get(i).toString(), 450, i*30 + 120);
         }
 	}
 	

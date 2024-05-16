@@ -129,14 +129,17 @@ public class FrameScreen extends JFrame {
         }
     }
 
-    // Lấy ra top 10 người chơi có điểm số cao nhất
-    public static List<User> getTop5Players() {
+ // Lấy ra top 10 người chơi có điểm số cao nhất
+    public static List<User> getTop10Players() {
         Collections.sort(users, (u1, u2) -> Integer.compare(Integer.parseInt(u2.getDiem()), Integer.parseInt(u1.getDiem())));
 
         if (users.size() > 10) {
-            return users.subList(0, 10);
-        } else {
-            return users;
+            // Xóa các người chơi từ vị trí 11 trở đi
+            for (int i = 10; i < users.size(); i++) {
+                users.remove(i);
+            }
         }
+
+        return users;
     }
 }
