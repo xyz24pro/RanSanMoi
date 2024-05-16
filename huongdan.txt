@@ -1,0 +1,10 @@
+Hướng dẫn:
+- Sử dụng các phím mũi tên để điều khiển con rắn.
+- Nếu người dùng bấm lại vào hướng di chuyển hiện tại thì tăng tốc
+- Nhấn space để tạm ngừng hoặc tiếp tục chơi.
+- Số lượng sâu mỗi level:
++ level 1: 7 con
++ level 2: level 1 + 5
++ các level tiếp theo bằng số lượng sâu level trước đó cộng thêm 5.
+- Tốc độ của con rắn: tăng 20% mỗi level.
+- Khi rắn cắn vào chính mình thì game sẽ được kết thúc và yêu cầu người chơi nhập tên.
