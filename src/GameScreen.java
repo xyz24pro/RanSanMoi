@@ -121,16 +121,17 @@ public class GameScreen extends JPanel implements Runnable{
             g.drawString("GAMEOVER!", 145, 160);
 		}
 		
-		  // Hiển thị thông tin về cấp độ, điểm số và top 5 người chơi
+		  // Hiển thị thông tin về cấp độ, điểm số và top 10 người chơi
 		g.setColor(Color.white);
 		g.setFont(g.getFont().deriveFont(18.0f));
 		g.drawString("LEVEL: "+ CurrentLevel, 450, 30);
 		g.drawString("SCORE: "+ diem, 450, 60);
-		g.drawString("TOP 5: ", 450, 90);
+		g.drawString("TOP 10: ", 450, 90);
 		
 		List<User> top5Players = FrameScreen.getTop5Players();
         for (int i = 0; i < top5Players.size(); i++) {
             g.drawString((i+1)+"."+ top5Players.get(i).toString(), 450, i*30 + 120);
         }
 	}
+	
 }

@@ -31,7 +31,7 @@ public class Data {
 		try {
 			sprite = ImageIO.read(new File("resource/sprite1.png"));
 			
-			imageHead = sprite.getSubimage(2, 3, 30, 30);
+			imageHead = sprite.getSubimage(2,3,30,30);
 			imageHead_GoLeft = sprite.getSubimage(75, 3, 30, 30);
 			imageHead_GoRight = sprite.getSubimage(110, 3, 30, 30);
 			imageHead_GoDown = sprite.getSubimage(39, 3, 30, 30);
